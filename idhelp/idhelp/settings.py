@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'idbanklist.apps.IdbanklistConfig',
 ]
 
@@ -76,8 +77,13 @@ WSGI_APPLICATION = 'idhelp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : 'django.db.backends.firebird',
+        'NAME' : 'idhelp_db', # Path to database or db alias
+        'USER' : 'SYSDBA',           # Your db user
+        'PASSWORD' : 'masterkey',    # db user password
+        'HOST' : '127.0.0.1',        # Your host machine
+        'PORT' : '3050',             # If is empty, use default 3050
+        #'OPTIONS' : {'charset':'ISO8859_1'}
     }
 }
 
